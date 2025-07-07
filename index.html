@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Port Testing Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .port-info {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+            background: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Port Testing Demo Page</h1>
+        <p>This page is for testing UI behavior on different ports.</p>
+        
+        <div class="port-info">
+            You are accessing this page on: <strong><span id="portDisplay"></span></strong>
+        </div>
+
+        <button onclick="alertPort()">Show Port in Alert</button>
+    </div>
+
+    <script>
+        function getPort() {
+            return window.location.port || "default (80/443)";
+        }
+
+        function alertPort() {
+            alert("You are on port: " + getPort());
+        }
+
+        document.getElementById("portDisplay").innerText = getPort();
+    </script>
+
+</body>
+</html>
